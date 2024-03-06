@@ -4,15 +4,16 @@ import { FaPencilAlt, FaEraser, FaUndo, FaRedo } from "react-icons/fa";
 import { MdSimCardDownload } from "react-icons/md";
 import "../App.css";
 import { menus } from "../const";
-import { menuItemClick, actionitemClick } from "../slice/menuslice";
+import { menuItemClick , actionitemClick } from "../slice/menuslice";
 
 const Menu = () => {
-  const [activeItem, setActiveitem] = useState(null);
+  const [activeItem , setActiveitem] = useState(null);
   const dispatch = useDispatch();
   const handleClick = (items) => {
     dispatch(menuItemClick(items));
     setActiveitem(items);
   };
+  
   const handleActionItemClick = (items) => {
     dispatch(actionitemClick(items));
     setActiveitem(items);
