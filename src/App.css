@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  height: 100vh;
+  width: 100vw;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.active{
+    background-color:rgb(88, 125, 60);
+}
+.menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1rem;
+  align-items: center;
+  background-color: rgb(210, 228, 196);
+  height: 30px;
+  width: 250px;
+  border-radius: 10px;
+  margin-top: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  position: absolute;
+  opacity: 0.7;
+}
+
+.menuItems {
+  margin: 10 10 10 10 ; 
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+}
+.menu-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.tool_wrapper {
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(210, 228, 196);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  height: 200px;
+  width: 250px;
+  margin-left: 20px;
+  gap: 50px;
+  flex-direction: column;
+  z-index: 2;
+  position: absolute;
+  opacity: 0.8;
+}
+
+.toolboxWrapper {
+  display: flex;
+
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Adjust this value according to your layout */
+}
+
+.stroke {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.color_box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+  cursor: pointer;
+}
+.color {
+  height: 30px;
+  width: 30px;
+  border: 1px solid black;
+  border-radius: 5px;
+  justify-content: space-between;
+}
+.brush {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.canvas-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.canvas {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+
+
+
+@media (max-width: 725px) {
+  .menu-wrapper {
+    flex-direction: row;
+    justify-content: center;
+    /* height: auto;  */
+    padding: 20px;
+  }
+
+  .tool_wrapper {
+    margin-top: 20px;
+  }
+
+  .toolboxWrapper {
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 150px;
+  }
+}
