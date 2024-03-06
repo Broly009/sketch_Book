@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 body {
   height: 100vh;
@@ -9,12 +10,15 @@ body {
   margin: 0;
   padding: 0;
 }
-.active{
-    background-color:rgb(88, 125, 60);
+.active:hover,
+.active.zoomed-in{
+    transform: scale(1.1); 
 }
-.colorActive{
-    
-}
+/* .color:hover,
+  .color.zoomed-in {
+    transform: scale(1.1); 
+  } */
+
 .menu {
   display: flex;
   flex-direction: row;
@@ -136,9 +140,9 @@ body {
     /* padding: 20px; */
   }
 
-  .tool_wrapper {
+  /* .tool_wrapper {
     margin-top: 20px;
-  }
+  } */
 
   .toolboxWrapper {
     flex-direction:column;
