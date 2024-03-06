@@ -76,6 +76,11 @@ const Board = () => {
     canvas.width= window.innerWidth
     canvas.height = window.innerHeight
 
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+
     const beginPath=(x,y)=>{
       context.beginPath()
       context.moveTo(x,y)
@@ -106,8 +111,13 @@ const Board = () => {
       if(!shouldDraw.current) return
       drawLine(e.clientX || e.touches[0].clientX, e.clientY || e.touches[0].clientY)
       socket.emit('drawLine', {x: e.clientX || e.touches[0].clientX, y: e.clientY || e.touches[0].clientY})
+      
 
     }
+
+   
+    
+
    const handleBeginPath = (path)=>{
     beginPath(path.x,path.y)
    }
@@ -115,7 +125,7 @@ const Board = () => {
    const handleDrawLine = (path)=>{
     drawLine(path.x,path.y)
    }
-
+    window.addEventListener("resize", resizeCanvas);
     canvas.addEventListener("mousedown",handleMouseDown)
     canvas.addEventListener("mouseup",handleMouseUp)
     canvas.addEventListener("mousemove",handleMouseMove)
@@ -129,6 +139,7 @@ const Board = () => {
 
 
     return () => {
+      window.removeEventListener("resize", resizeCanvas);
       canvas.removeEventListener("mousedown", handleMouseDown);
       canvas.removeEventListener("mouseup", handleMouseUp);
       canvas.removeEventListener("mousemove", handleMouseMove);
