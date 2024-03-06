@@ -12,6 +12,9 @@ body {
 .active{
     background-color:rgb(88, 125, 60);
 }
+.colorActive{
+    
+}
 .menu {
   display: flex;
   flex-direction: row;
@@ -69,7 +72,7 @@ body {
   flex-direction: column;
   gap: 20px;
 }
-.color_box {
+/* .color_box {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -82,7 +85,28 @@ body {
   border: 1px solid black;
   border-radius: 5px;
   justify-content: space-between;
-}
+} */
+.color_box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    cursor: pointer;
+  }
+  
+  .color {
+    height: 30px;
+    width: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+    transition: transform 0.2s ease; /* Add transition for smooth scaling */
+  }
+  
+  .color:hover,
+  .color.zoomed-in {
+    transform: scale(1.1); /* Zoom in effect on hover or when zoomed-in class is added */
+  }
+  
 .brush {
   display: flex;
   flex-direction: column;
@@ -109,7 +133,7 @@ body {
     flex-direction: row;
     justify-content: center;
     /* height: auto;  */
-    padding: 20px;
+    /* padding: 20px; */
   }
 
   .tool_wrapper {
@@ -117,8 +141,7 @@ body {
   }
 
   .toolboxWrapper {
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 150px;
+    flex-direction:column;
+    justify-content: flex-end;
   }
 }

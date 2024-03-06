@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import "../App.css";
 import { colors, menus } from "../const";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,6 +12,7 @@ const Toolbar = () => {
   const show_toolbox = activeMenuitems === menus.PENCIL;
   const show_brush = activeMenuitems === menus.PENCIL || activeMenuitems === menus.ERASER;
   const {color, size} = useSelector((state)=>state.toolbox[activeMenuitems])
+  const [activeColor , setActivecolor] = useState(null);
 
   const handlebrush = (e) => {
     dispatch(changeBrushSize({ item: activeMenuitems, size: e.target.value }));
@@ -20,6 +22,7 @@ const Toolbar = () => {
 
   const updateColor = (newcolor) => {
     dispatch(changeColor({ item: activeMenuitems, color: newcolor }));
+    setActivecolor(newcolor)
     socket.emit("changeConfig", {color:newcolor , size})
 
   };
@@ -35,32 +38,31 @@ const Toolbar = () => {
           </div>
           <div className="color_box">
             <div
-              className="color"
+              className={`color ${activeColor === colors.BLACK ? "zoomed-in" : ""}`}
               style={{ backgroundColor: colors.BLACK }}
               onClick={() => updateColor(colors.BLACK)}
             />
             <div
-              className="color"
-              style={{ backgroundColor: colors.BLUE }}
+              className={`color ${activeColor === colors.BLUE ? "zoomed-in" : ""}`}              style={{ backgroundColor: colors.BLUE }}
               onClick={() => updateColor(colors.BLUE)}
             />
             <div
-              className="color"
+              className={`color ${activeColor === colors.GREEN ? "zoomed-in" : ""}`}
               style={{ backgroundColor: colors.GREEN }}
               onClick={() => updateColor(colors.GREEN)}
             />
             <div
-              className="color"
+              className={`color ${activeColor === colors.RED ? "zoomed-in" : ""}`}
               style={{ backgroundColor: colors.RED }}
               onClick={() => updateColor(colors.RED)}
             />
             <div
-              className="color"
+              className={`color ${activeColor === colors.YELLOW ? "zoomed-in" : ""}`}
               style={{ backgroundColor: colors.YELLOW }}
               onClick={() => updateColor(colors.YELLOW)}
             />
             <div
-              className="color"
+              className={`color ${activeColor === colors.ORANGE ? "zoomed-in" : ""}`}
               style={{ backgroundColor: colors.ORANGE }}
               onClick={() => updateColor(colors.ORANGE)}
             />
